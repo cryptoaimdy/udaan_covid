@@ -20,6 +20,25 @@ def post():
         #     print("yes")
     data = request.json
 
+    if data.get("name") in ["", None]:
+        return {
+            "code": 400,
+            "message": "name cannot be null"
+        }
+
+    elif data.get("phoneNumber") in ["", None]:
+        return {
+            "code": 400,
+            "message": "PH cannot be null"
+        }
+
+    elif data.get("pinCode") in ["", None]:
+        return {
+            "code": 400,
+            "message": "PIN cannot be null"
+        }
+
+
 
     result = Database().store(data)
 
